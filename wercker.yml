@@ -21,6 +21,9 @@ build:
 # Deploy definition
 deploy:
   steps:
+    # A step that executes `pip install` command
+    - pip-install
+
     - script:
         name: set env
         code: |
@@ -31,7 +34,7 @@ deploy:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: v1, $WERCKER_GIT_COMMIT
-        cmd: python app.py
+        cmd: python /pipeline/source/app.py
         ports: "3000"
         repository: gshiva/home
         registry: https://registry.hub.docker.com
