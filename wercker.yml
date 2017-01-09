@@ -22,8 +22,8 @@ build:
 deploy:
   steps:
     - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
         tag: v1
         cmd: python app.py
         repository: gshiva/home
