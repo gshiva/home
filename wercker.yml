@@ -25,6 +25,7 @@ deploy:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: v1, $WERCKER_GIT_COMMIT
-        cmd: python app.py
+        cmd: export PORT=3000 && python app.py
+        ports: "3000"
         repository: gshiva/home
         registry: https://registry.hub.docker.com
