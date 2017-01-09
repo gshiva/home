@@ -21,11 +21,17 @@ build:
 # Deploy definition
 deploy:
   steps:
+    - script:
+        name: set env
+        code: |
+          # define environment variables
+          export PORT=3000
+
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: v1, $WERCKER_GIT_COMMIT
-        cmd: export PORT=3000 && python app.py
+        cmd: python app.py
         ports: "3000"
         repository: gshiva/home
         registry: https://registry.hub.docker.com
