@@ -25,9 +25,8 @@ deploy:
     - pip-install
 
     - script:
-        name: set env
+        name: set port
         code: |
-          # define environment variables
           export PORT=3000
 
     - internal/docker-push:
@@ -35,7 +34,7 @@ deploy:
         password: $DOCKER_PASSWORD
         port: $PORT
         tag: v1, $WERCKER_GIT_COMMIT
-        cmd: python /pipeline/source/app.py
+        cmd: python /pipeline/source/app.py 3000
         ports: "3000"
         repository: gshiva/home
         registry: https://registry.hub.docker.com
