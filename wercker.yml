@@ -24,7 +24,7 @@ deploy:
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
-        tag: v1
+        tag: v1, $WERCKER_GIT_COMMIT
         cmd: python app.py
         repository: gshiva/home
         registry: https://registry.hub.docker.com
