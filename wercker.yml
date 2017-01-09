@@ -33,6 +33,7 @@ deploy:
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
+        port: $PORT
         tag: v1, $WERCKER_GIT_COMMIT
         cmd: python /pipeline/source/app.py
         ports: "3000"
